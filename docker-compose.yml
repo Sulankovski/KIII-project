@@ -14,7 +14,7 @@ services:
       - ./postgres_data:/var/lib/postgresql/data
 
   app:
-    image: kiii:latest
+    image: luka02/kiii:latest
     container_name: kiii_container
     build:
       context: ./kol2022-g1
