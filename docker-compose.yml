@@ -12,6 +12,11 @@ services:
 #      - "5432:5432"
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   app:
     image: luka02/kiii:latest
@@ -19,7 +24,8 @@ services:
     build:
       context: ./kol2022-g1
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
       - "9999:9999"
     environment:
