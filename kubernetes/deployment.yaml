@@ -6,6 +6,7 @@ type: Opaque
 data:
   POSTGRES_USER: cG9zdGdyZXM=  # base64 encoded value of 'postgres'
   POSTGRES_PASSWORD: MTIzNDU2   # base64 encoded value of 'wp123'
+  POSTGRES_DB_NAME: KIII
 
 ---
 
@@ -135,7 +136,8 @@ metadata:
   name: db
 spec:
   selector:
-    app: db-d
+#    app: db-d
+    app: db
   ports:
     - protocol: TCP
       port: 5432
