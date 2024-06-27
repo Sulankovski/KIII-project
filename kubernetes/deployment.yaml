@@ -117,7 +117,7 @@ spec:
                   name: app-config
                   key: SPRING_JPA_DATABASE_PLATFORM
       imagePullSecrets:
-        - name: regcred
+        - name: db-credentials
 
 ---
 
@@ -138,16 +138,16 @@ spec:
 
 ---
 
-apiVersion: v1
-kind: Service
-metadata:
-  name: db
-  namespace: application
-spec:
-  selector:
-#    app: db-d
-    app: db
-  ports:
-    - protocol: TCP
-      port: 5432
-      targetPort: 5432
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: db
+#  namespace: application
+#spec:
+#  selector:
+##    app: db-d
+#    app: db
+#  ports:
+#    - protocol: TCP
+#      port: 5432
+#      targetPort: 5432
